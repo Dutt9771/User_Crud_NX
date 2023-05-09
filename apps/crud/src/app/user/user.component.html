@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid me-auto">
+      <a class="navbar-brand">User List</a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <ng-container class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+          <button type="button" data-mdb-toggle="modal" data-mdb-target="#Add" class="btn btn-outline-success" type="button" >ADD</button>
+        </ng-container>
+    </div>
+  </nav>
+
+  <!-- <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  <div class="container mt-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+      <div class="col" *ngFor="let user of Users">
+<crud-card [userObj]="user" (EditUser)="Edit_User($event)"></crud-card>
+      </div>
+</div>
+</div>
+
+
+<crud-dialog (AddUser)="ADD_User($event)" [obj]="obj"></crud-dialog>

@@ -1,0 +1,132 @@
+<!-- <button mat-raised-button color="primary" (click)="openDialog()" >Login</button> -->
+<!-- <ol>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>What's your name?</mat-label>
+        <input matInput [(ngModel)]="name">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol> -->
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="{{ obj ? obj.modal : 'exampleModals'}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{obj ? obj.title : ""}}</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close" (click)="Clear()"></button>
+        </div>
+        <div class="modal-body text-center w-auto">
+          <form
+          class="row g-3 d-flex justify-content-center"
+          [formGroup]="user_login"
+          (ngSubmit)="Save_User_Login()"
+          novalidate
+        >
+          <div class="row g-3 d-flex justify-content-center">
+            <div class="col-md-8">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                formControlName="name"
+                class="form-control"
+                id="name"
+                placeholder="Enter name"
+              />
+            </div>
+          </div>
+          <div
+            *ngIf="get_user_login.name.touched && get_user_login.name.invalid"
+            class="text-danger text-center"
+          >
+            <div
+              *ngIf="get_user_login.name.errors?.['required']"
+              class="text-danger"
+            >
+              Name Must Required
+            </div>
+          </div>
+          <div class="row g-3 d-flex justify-content-center">
+            <div class="col-md-8">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email"
+              />
+            </div>
+            <div
+              *ngIf="get_user_login.email.touched && get_user_login.email.invalid"
+              class="text-danger text-center"
+            >
+              <div
+                *ngIf="get_user_login.email.errors?.['required']"
+                class="text-danger"
+              >
+                email Must Required
+              </div>
+              <div
+                *ngIf="get_user_login.email.errors?.['email']"
+                class="text-danger"
+              >
+                email Should be valid
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 d-flex justify-content-center">
+            <div class="col-md-8">
+              <label for="mobile" class="form-label">Mobile</label>
+              <input
+                type="number"
+                formControlName="mobile"
+                class="form-control"
+                id="mobile"
+                placeholder="Enter mobile"
+              />
+            </div>
+            <div
+              *ngIf="get_user_login.mobile.touched && get_user_login.mobile.invalid"
+              class="text-danger text-center"
+            >
+              <div
+                *ngIf="get_user_login.mobile.errors?.['required']"
+                class="text-danger"
+              >
+                Mobile Must Required
+              </div>
+              <div
+                *ngIf="get_user_login.mobile.errors?.['pattern']"
+                class="text-danger"
+              >
+                Mobile Should be valid
+              </div>
+            </div>
+          </div>
+
+<div>{{obj ? obj.id : 0}}</div>
+          <div class="modal-footer row g-2 d-flex justify-content-center">
+            <div class="d-grid col-3 col-md-1 mx-auto">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" (click)="Clear()">Close</button>
+            </div>  
+            <div class="d-grid col-3 col-md-1 mx-auto">
+              <!-- data-mdb-dismiss="{{data ? 'modal' : null}}" -->
+              <button type="submit" class="btn btn-primary" mat-dialog-actions mat-raised-button color="primary" >{{obj ? obj.btn_value : ""}}</button>
+                </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
